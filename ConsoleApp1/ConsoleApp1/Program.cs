@@ -1,17 +1,28 @@
-﻿int[] someArray = new int[7] {1,4,2,8,11,3,0};
-Console.WriteLine("Numbers before sort.");
-List<int> intList = someArray.ToList();
+﻿        int[] tablica = { 64, 34, 25, 12, 22, 11, 90 };
+        Babelkowe(tablica);
+        Console.WriteLine("Posortowana tablica: ");  
 
-foreach (int i in intList)
-{
-    Console.WriteLine(i);
-}
+        foreach (int value in tablica)
+        {
+        Console.WriteLine(value);
+        }
+        
+    
 
-List<int> sortList = intList.OrderBy(x =>x).ToList();
-
-
-Console.WriteLine("Numbers after sort.");
-foreach (int i in sortList)
-{
-    Console.WriteLine(i);
-}
+    static void Babelkowe(int[] arr)
+    {
+        
+        for (int i = 0; i < arr.Length - 1; i++)
+        {
+            for (int j = 0; j < arr.Length - i - 1; j++)
+            {
+                if (arr[j] > arr[j + 1])
+                {
+                    // zamiana arr[j+1] i arr[j]
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+    }
