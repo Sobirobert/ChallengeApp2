@@ -1,5 +1,5 @@
 
-using ConsoleApp1;
+using ZadanieZWyzwania21;
 
 namespace TypeTest
 {
@@ -7,87 +7,49 @@ namespace TypeTest
     {
        
         [Test]
-        public void GetUserShouldReturnTheSameLastName()
+        public void GetUserAndGradesShouldReturnMaxGrade()
         {
             //arange
-            var employee1 = GetUser("Adam", "Wick", 34);
-            var employee2 = GetUser("Adam", "Wick", 34);
+            var employee1 = new Employee("Adam", "Wick", 34);
+            employee1.AddGrade(3.1f);
+            employee1.AddGrade(1);
+            employee1.AddGrade(7.55f);
+            employee1.AddGrade(8.99f);
+            employee1.AddGrade(2);
+
             //act
+            var statistics = employee1.GetStatistics();
 
             //assert
-            Assert.AreEqual(employee1.lastName,employee2.lastName);
+            Assert.AreEqual(8.99f, statistics.Max);
         }
-        public void GetUserShouldReturnDifferentObjects()
+        public void GetUserAndGradesShouldReturnMinGrade()
         {
             //arange
-            var employee1 = GetUser("Adam", "Dark", 34);
-            var employee2 = GetUser("Adam", "Wick", 34);
+            var employee2 = GetUser("Adam", "Dark", 44);
+            employee2.AddGrade(5.2f);
+            employee2.AddGrade(22);
+            employee2.AddGrade(0.1f);
+            employee2.AddGrade(0);
+            employee2.AddGrade(33.333f);
             //act
-
+            var statistics = employee2.GetStatistics();
             //assert
-            Assert.AreNotEqual(employee1.lastName, employee2.lastName);
+            Assert.AreEqual(0 ,statistics.Min);
         }
-
-        public void GetIntNumbersShouldReturnDifferentObjects()
+        public void GetUserAndGradesShouldReturnAverageGrades()
         {
             //arange
-            int number1 = 5;
-            int number2 = 10;
+            var employee3 = GetUser("Mark", "Dark", 24);
+            employee3.AddGrade(5.2f);
+            employee3.AddGrade(22);
+            employee3.AddGrade(0.1f);
+            employee3.AddGrade(0);
+            employee3.AddGrade(33.333f);
             //act
-
+            var statistics = employee3.GetStatistics();
             //assert
-            Assert.AreNotEqual(number1, number2);
-        }
-        public void GetIntNumbersShouldReturnTheSameObects()
-        {
-            //arange
-            int number1 = 10;
-            int number2 = 10;
-            //act
-
-            //assert
-            Assert.AreEqual(number1, number2);
-        }
-        public void GetFloatNumbersShouldReturnTheSameObects()
-        {
-            //arange
-            float number1 = 2.7182f;
-            float number2 = 2.7182f;
-            //act
-
-            //assert
-            Assert.AreEqual(number1, number2);
-        }
-        public void GetFloatNumbersShouldReturnDifferentObjects()
-        {
-            //arange
-            float number1 = 2.718f;
-            float number2 = 2.717f;
-            
-            //act
-
-            //assert
-            Assert.AreNotEqual(number1, number2);
-        }
-        public void GetStringValueShouldReturnTheSameObects()
-        {
-            //arange
-            string string1 = "Czerwony Pomidor";
-            string string2 = "Czerwony Pomidor";
-            //act
-
-            //assert
-            Assert.AreEqual(string1, string2);
-        }
-        public void GetStringValueShouldReturnDifferentObjects()
-        {
-            //arange
-            string string1 = "Zielony Pomidor";
-            string string2 = "Czerwony Pomidor";
-            //act
-
-            //assert
-            Assert.AreNotEqual(string1, string2);
+            Assert.AreEqual(12.1266f, statistics.Average);
         }
 
         private Employee GetUser(string name, string lastName, int age)
