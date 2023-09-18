@@ -30,6 +30,8 @@ List<Employee> users = new List<Employee>()
     employee1, employee2, employee3
 };
 var maxScore = users.Max(e =>e.pointsOfEmployee);
+Employee maxWithMaxSocres = users.FirstOrDefault(e => e.pointsOfEmployee == maxScore);
+
 
 var maxScore2 = 0;
 Employee userMaxScore = null;
@@ -44,7 +46,8 @@ foreach (var user in users)
 }
 
 Console.WriteLine($" Employee with max score is {userMaxScore.name}, {userMaxScore.lastName}, {userMaxScore.age} yers old, and his score is {maxScore2}");
-Console.WriteLine($" {maxScore}");
+Console.WriteLine($" Employee with max score is {maxWithMaxSocres.name}, {maxWithMaxSocres.lastName}, {maxWithMaxSocres.age} yers old, and his score is {maxScore}");
+
 
 
 
