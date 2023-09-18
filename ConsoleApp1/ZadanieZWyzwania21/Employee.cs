@@ -28,7 +28,40 @@ namespace ZadanieZWyzwania21
         {
             this.grades.Add(grade);
         }
-     
+
+        public void AddGradeString(string grade)
+        {
+            if(float.TryParse(grade, out float number))
+            {
+                this.AddGrade(number);
+            }
+            else
+            {
+                Console.WriteLine("Incorrect value");
+            }
+            
+        }
+
+        public void AddGradeDouble(double grade)
+        {
+            float number = Convert.ToSingle(grade);
+            // float number = (float)grade;
+            this.AddGrade(number);
+        }
+
+        public void AddGradeLong(long grade)
+        {
+            float value = Convert.ToSingle(grade);
+            // var value = (long)grade;
+            this.AddGrade(value);
+        }
+        public void AddGradeShort(short grade)
+        {
+            // float value = Convert.ToSingle(grade);
+            var value = (short)grade;
+            this.AddGrade(value);
+        }
+
         public Statistics GetStatistics()
         {
             var statistics = new Statistics();  
