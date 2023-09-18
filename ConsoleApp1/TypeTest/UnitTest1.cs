@@ -12,16 +12,16 @@ namespace TypeTest
             //arange
             var employee1 = new Employee("Adam", "Wick", 34);
             employee1.AddGrade(3.1f);
-            employee1.AddGrade(1);
+            employee1.AddGrade("B");
             employee1.AddGrade(7.55f);
             employee1.AddGrade(8.99f);
             employee1.AddGrade(2);
 
             //act
-            var statistics = employee1.GetStatistics();
+            var statistics = employee1.GetStatisticsWhitForEach();
 
             //assert
-            Assert.AreEqual(8.99f, statistics.Max);
+            Assert.AreEqual(80, statistics.Max);
         }
         public void GetUserAndGradesShouldReturnMinGrade()
         {
@@ -33,9 +33,10 @@ namespace TypeTest
             employee2.AddGrade(0);
             employee2.AddGrade(33.333f);
             //act
-            var statistics = employee2.GetStatistics();
+            var statistics = employee2.GetStatisticsWhitForEach();
             //assert
             Assert.AreEqual(0 ,statistics.Min);
+
         }
         public void GetUserAndGradesShouldReturnAverageGrades()
         {
@@ -47,10 +48,27 @@ namespace TypeTest
             employee3.AddGrade(0);
             employee3.AddGrade(33.333f);
             //act
-            var statistics = employee3.GetStatistics();
+            var statistics = employee3.GetStatisticsWhitForEach();
             //assert
             Assert.AreEqual(12.1266f, statistics.Average);
+            Assert.AreEqual('E', statistics.AverageLetter);
         }
+        public void GetUserAndGradesShouldReturnAverageLetter()
+        {
+            //arange
+            var employee4 = GetUser("Zuzia", "Maracje", 18);
+            employee4.AddGrade("a");
+            employee4.AddGrade("c");
+            employee4.AddGrade(10);
+            employee4.AddGrade(20);
+            employee4.AddGrade(333);
+            //act
+            var statistics = employee4.GetStatisticsWhitForEach();
+            //assert
+            Assert.AreEqual(38, statistics.Average);
+            Assert.AreEqual('D', statistics.AverageLetter);
+        }
+
 
         private Employee GetUser(string name, string lastName, int age)
         {

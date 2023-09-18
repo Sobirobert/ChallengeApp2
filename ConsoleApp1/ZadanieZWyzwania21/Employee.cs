@@ -33,12 +33,47 @@ namespace ZadanieZWyzwania21
                 this.grades.Add(grade); 
             }
         }
+        public void AddGrade(char grade)
+        {
+            switch (grade)
+            {
+                case 'A':
+                case 'a':
+                    this.grades.Add(100);
+                    break;
+                case 'B':
+                case 'b':
+                    this.grades.Add(80);
+                    break;
+                case 'C':
+                case 'c':
+                    this.grades.Add(60);
+                    break;
+                case 'D':
+                case 'd':
+                    this.grades.Add(40);
+                    break;
+                case 'E':
+                case 'e':
+                    this.grades.Add(20);
+                    break;
+                default:
+                    // this.grades.Add(0);
+                    Console.WriteLine("Wrong Letter");
+                    break;
+            }
+        }
 
-        public void AddGradeString(string grade)
+        public void AddGrade(string grade)
         {
             if(float.TryParse(grade, out float number))
             {
                 this.AddGrade(number);
+            }
+            else if(grade.Length == 1)
+            {
+                char a = char.Parse(grade);
+                this.AddGrade(a);
             }
             else
             {
@@ -47,84 +82,26 @@ namespace ZadanieZWyzwania21
             
         }
 
-        public void AddGradeDouble(double grade)
+        public void AddGrade(double grade)
         {
             float number = Convert.ToSingle(grade);
             // float number = (float)grade;
             this.AddGrade(number);
         }
 
-        public void AddGradeLong(long grade)
+        public void AddGrade(long grade)
         {
             float value = Convert.ToSingle(grade);
             // var value = (long)grade;
             this.AddGrade(value);
         }
-        public void AddGradeShort(short grade)
+        public void AddGrade(short grade)
         {
             // float value = Convert.ToSingle(grade);
             var value = (short)grade;
             this.AddGrade(value);
         }
-        public Statistics GetStatisticsWhitDoWhile()
-        {
-            var statistics = new Statistics();
-            statistics.Average = 0;
-            statistics.Max = float.MinValue;
-            statistics.Min = float.MaxValue;
-            var index = 0;
-
-            do
-            {
-                statistics.Max = Math.Max(statistics.Max, this.grades[index]);
-                statistics.Min = Math.Min(statistics.Min, this.grades[index]);
-                statistics.Average += this.grades[index];
-                index++;
-            } while (index < this.grades.Count);
-
-            statistics.Average /= this.grades.Count;
-            return statistics;
-        }
-
-        public Statistics GetStatisticsWhitWhile()
-        {
-            var statistics = new Statistics
-            {
-                Average = 0,
-                Max = float.MinValue,
-                Min = float.MaxValue
-            };
-            var index = 0;
-
-            while (index < this.grades.Count)
-            {
-                statistics.Max = Math.Max(statistics.Max, this.grades[index]);
-                statistics.Min = Math.Min(statistics.Min, this.grades[index]);
-                statistics.Average += this.grades[index];
-                index++;
-            }
-                        
-            statistics.Average = statistics.Average / this.grades.Count;    
-            return statistics;
-        }
-        public Statistics GetStatisticsWhitFor()
-        {
-            var statistics = new Statistics();
-            statistics.Average = 0;
-            statistics.Max = float.MinValue;
-            statistics.Min = float.MaxValue;
-           
-            for (int index = 0; index < this.grades.Count; index++)
-            {
-                statistics.Max = Math.Max(statistics.Max, this.grades[index]);
-                statistics.Min = Math.Min(statistics.Min, this.grades[index]);
-                statistics.Average += this.grades[index];
-               
-            }
-
-            statistics.Average = statistics.Average / this.grades.Count;
-            return statistics;
-        }
+      
         public Statistics GetStatisticsWhitForEach()
         {
             var statistics = new Statistics();
@@ -139,7 +116,28 @@ namespace ZadanieZWyzwania21
                 statistics.Average += grade;
             }
 
-            statistics.Average = statistics.Average / this.grades.Count;
+            statistics.Average /= this.grades.Count;
+
+            switch (statistics.AverageLetter)
+            {
+                case var average when average >= 80:
+                    statistics.AverageLetter = 'A';
+                    break;
+                case var average when average >= 60:
+                    statistics.AverageLetter = 'B';
+                    break;
+                case var average when average >= 40:
+                    statistics.AverageLetter = 'C';
+                    break;
+                case var average when average >= 20:
+                    statistics.AverageLetter = 'D';
+                    break;
+                default:
+                    statistics.AverageLetter = 'E';
+                    break;
+            }
+
+            
             return statistics;
         }
     }
