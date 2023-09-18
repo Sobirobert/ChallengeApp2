@@ -56,7 +56,7 @@ namespace TypeTest
         public void GetUserAndGradesShouldReturnAverageLetter()
         {
             //arange
-            var employee4 = GetUser("Zuzia", "Maracje", 18);
+            var employee4 = GetUser("Zuzia", "MaZawszeRacje", 18);
             employee4.AddGrade("a");
             employee4.AddGrade("c");
             employee4.AddGrade(10);
