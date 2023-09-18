@@ -3,13 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{2B1223CA-F2A0-4177-A8AE-6A7344F4EA02}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Additional tasks", "Additional tasks\Additional tasks.csproj", "{75DB31B0-D888-440F-BE6E-92AFCA5FCC9D}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TypeTest", "TypeTest\TypeTest.csproj", "{DCFDD026-22AF-4AD5-8884-E7C0E189E882}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZadanieZWyzwania21", "ZadanieZWyzwania21\ZadanieZWyzwania21.csproj", "{2531BD82-01EF-4081-A468-3A8CAFA1E4A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZadanieZWyzwania21", "ZadanieZWyzwania21\ZadanieZWyzwania21.csproj", "{2531BD82-01EF-4081-A468-3A8CAFA1E4A3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,14 +13,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2B1223CA-F2A0-4177-A8AE-6A7344F4EA02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2B1223CA-F2A0-4177-A8AE-6A7344F4EA02}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2B1223CA-F2A0-4177-A8AE-6A7344F4EA02}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2B1223CA-F2A0-4177-A8AE-6A7344F4EA02}.Release|Any CPU.Build.0 = Release|Any CPU
-		{75DB31B0-D888-440F-BE6E-92AFCA5FCC9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{75DB31B0-D888-440F-BE6E-92AFCA5FCC9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{75DB31B0-D888-440F-BE6E-92AFCA5FCC9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{75DB31B0-D888-440F-BE6E-92AFCA5FCC9D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DCFDD026-22AF-4AD5-8884-E7C0E189E882}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DCFDD026-22AF-4AD5-8884-E7C0E189E882}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCFDD026-22AF-4AD5-8884-E7C0E189E882}.Release|Any CPU.ActiveCfg = Release|Any CPU
