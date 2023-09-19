@@ -11,7 +11,7 @@ namespace ZadanieZWyzwania21
 {
     public class Employee
     {
-
+        private readonly char sex = 'M';
 
         private List<float> grades = new List<float>();
 
@@ -24,6 +24,7 @@ namespace ZadanieZWyzwania21
             this.name = name;
             this.surname = surname;
             this.age = age;
+            this.sex = 'K' ;
         }
 
         public void AddGrade(float grade)
@@ -31,6 +32,10 @@ namespace ZadanieZWyzwania21
             if (grade >= 0 && grade <= 100) 
             {
                 this.grades.Add(grade); 
+            }
+            else
+            {
+                throw new Exception("Invalid grade value");
             }
         }
         public void AddGrade(char grade)
@@ -59,8 +64,8 @@ namespace ZadanieZWyzwania21
                     break;
                 default:
                     // this.grades.Add(0);
-                    Console.WriteLine("Wrong Letter");
-                    break;
+                    throw new Exception("Wrong Letter"); 
+                    
             }
         }
 
@@ -77,7 +82,7 @@ namespace ZadanieZWyzwania21
             }
             else
             {
-                Console.WriteLine("Incorrect value");
+                throw new Exception("Incorrect value");
             }
             
         }
