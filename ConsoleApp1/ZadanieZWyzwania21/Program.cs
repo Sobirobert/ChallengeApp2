@@ -7,7 +7,7 @@ Console.WriteLine("Witamy w Programie UprzejmięDooszę do oceny Pracowników");
 Console.WriteLine("========================================================");
 Console.WriteLine();
 
-var employee = new Employee("Adam", "Wick", 53, 1);
+var employee = new Employee("Adam", "Wick", 53, "Mele");
 
 
 while (true)
@@ -31,7 +31,7 @@ while (true)
     }
 }
 
-    var statistics = employee.GetStatisticsWhitForEach();
+    var statistics = employee.GetStatistics();
     Console.WriteLine($" Max {statistics.Max}");
     Console.WriteLine($" Min {statistics.Min}");
     Console.WriteLine($" Average {statistics.Average}");

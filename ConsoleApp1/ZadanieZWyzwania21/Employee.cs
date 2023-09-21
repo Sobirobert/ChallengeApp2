@@ -9,7 +9,7 @@ using ZadanieZWyzwania21;
 
 namespace ZadanieZWyzwania21
 {
-    public class Employee : Person 
+    public class Employee : IEmployee 
     {
        
 
@@ -21,7 +21,7 @@ namespace ZadanieZWyzwania21
         public string gender { get; private set; }
           
         public Employee(string name, string surname, int age, string gender ) 
-            : base( name, surname, age, gender )
+           
         {
             this.name = name;
             this.surname = surname;
@@ -96,20 +96,7 @@ namespace ZadanieZWyzwania21
             this.AddGrade(number);
         }
 
-        public void AddGrade(long grade)
-        {
-            float value = Convert.ToSingle(grade);
-            // var value = (long)grade;
-            this.AddGrade(value);
-        }
-        public void AddGrade(short grade)
-        {
-            // float value = Convert.ToSingle(grade);
-            var value = (short)grade;
-            this.AddGrade(value);
-        }
-      
-        public Statistics GetStatisticsWhitForEach()
+        public Statistics GetStatistics()
         {
             var statistics = new Statistics();
             statistics.Average = 0;
