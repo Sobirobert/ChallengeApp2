@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ZadanieZWyzwania21
 {
-    internal class Supervisor : IEmployee
+    public class Supervisor : IEmployee
     {
         private List<float> Grades = new List<float>();
 
