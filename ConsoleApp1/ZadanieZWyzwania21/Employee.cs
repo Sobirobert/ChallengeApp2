@@ -13,27 +13,27 @@ namespace ZadanieZWyzwania21
     {
        
 
-        private List<float> grades = new List<float>();
+        private List<float> Grades = new List<float>();
 
-        public string name { get; private set; }
-        public string surname { get; private set; }
-        public int age { get; private set; }
-        public string gender { get; private set; }
+        public string Name { get; private set; }
+        public string Surname { get; private set; }
+        public int Age { get; private set; }
+        public string Gender { get; private set; }
           
         public Employee(string name, string surname, int age, string gender ) 
            
         {
-            this.name = name;
-            this.surname = surname;
-            this.age = age;
-            this.gender = gender;
+            this.Name = name;
+            this.Surname = surname;
+            this.Age = age;
+            this.Gender = gender;
         }
 
         public void AddGrade(float grade)
         {
             if (grade >= 0 && grade <= 100) 
             {
-                this.grades.Add(grade); 
+                this.Grades.Add(grade); 
             }
             else
             {
@@ -46,23 +46,23 @@ namespace ZadanieZWyzwania21
             {
                 case 'A':
                 case 'a':
-                    this.grades.Add(100);
+                    this.Grades.Add(100);
                     break;
                 case 'B':
                 case 'b':
-                    this.grades.Add(80);
+                    this.Grades.Add(80);
                     break;
                 case 'C':
                 case 'c':
-                    this.grades.Add(60);
+                    this.Grades.Add(60);
                     break;
                 case 'D':
                 case 'd':
-                    this.grades.Add(40);
+                    this.Grades.Add(40);
                     break;
                 case 'E':
                 case 'e':
-                    this.grades.Add(20);
+                    this.Grades.Add(20);
                     break;
                 default:
                     // this.grades.Add(0);
@@ -103,14 +103,14 @@ namespace ZadanieZWyzwania21
             statistics.Max = float.MinValue;
             statistics.Min = float.MaxValue;
 
-            foreach (var grade in this.grades)
+            foreach (var grade in this.Grades)
             {
                 statistics.Max = Math.Max(statistics.Max, grade);
                 statistics.Min = Math.Min(statistics.Min, grade);
                 statistics.Average += grade;
             }
 
-            statistics.Average /= this.grades.Count;
+            statistics.Average /= this.Grades.Count;
 
             switch (statistics.AverageLetter)
             {
