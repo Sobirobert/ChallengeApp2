@@ -7,7 +7,7 @@ Console.WriteLine("Witamy w Programie UprzejmięDooszę do oceny Pracowników");
 Console.WriteLine("========================================================");
 Console.WriteLine();
 
-var employee = new Employee("Adam", "Wick", 53);
+var employee = new Employee("Adam", "Wick", 53, 1);
 
 
 while (true)

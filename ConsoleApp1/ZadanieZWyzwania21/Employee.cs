@@ -18,9 +18,9 @@ namespace ZadanieZWyzwania21
         public string name { get; private set; }
         public string surname { get; private set; }
         public int age { get; private set; }
-        public int gender { get; private set; }
+        public string gender { get; private set; }
           
-        public Employee(string name, string surname, int age, int gender ) 
+        public Employee(string name, string surname, int age, string gender ) 
             : base( name, surname, age, gender )
         {
             this.name = name;
