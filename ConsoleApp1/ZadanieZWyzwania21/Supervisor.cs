@@ -14,6 +14,11 @@ namespace ZadanieZWyzwania21
 
         public string Surname { get; private set; }
 
+        public Supervisor(string name, string surname) 
+        { 
+            this.Name = name;
+            this.Surname = surname;
+        }
         public void AddGrade(float grade)
         {
             if (grade >= 0 && grade <= 100)
@@ -88,8 +93,20 @@ namespace ZadanieZWyzwania21
                     this.Grades.Add(0);
                     break;
                 default:
-                    // this.grades.Add(0);
-                    throw new Exception("Wrong Letter");
+                    if (float.TryParse(grade, out float number))
+                    {
+                        this.AddGrade(number);
+                    }
+                    else if (grade.Length == 1)
+                    {
+                        char a = char.Parse(grade);
+                        this.AddGrade(a);
+                    }
+                    else
+                    {
+                        throw new Exception("Incorrect value");
+                    }
+                    break;
 
             }
             

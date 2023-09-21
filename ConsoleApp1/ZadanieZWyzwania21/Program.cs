@@ -7,7 +7,7 @@ Console.WriteLine("Witamy w Programie UprzejmięDooszę do oceny Pracowników");
 Console.WriteLine("========================================================");
 Console.WriteLine();
 
-var employee = new Employee("Adam", "Wick", 53, "Mele");
+var supervisor = new Supervisor("Adam", "Wick");
 
 
 while (true)
@@ -22,7 +22,7 @@ while (true)
 
     try
     {
-        employee.AddGrade(inPut);
+        supervisor.AddGrade(inPut);
 
     }
     catch (Exception e)
@@ -31,7 +31,7 @@ while (true)
     }
 }
 
-    var statistics = employee.GetStatistics();
+    var statistics = supervisor.GetStatistics();
     Console.WriteLine($" Max {statistics.Max}");
     Console.WriteLine($" Min {statistics.Min}");
     Console.WriteLine($" Average {statistics.Average}");
