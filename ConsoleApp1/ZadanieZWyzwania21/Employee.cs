@@ -9,22 +9,24 @@ using ZadanieZWyzwania21;
 
 namespace ZadanieZWyzwania21
 {
-    public class Employee
+    public class Employee : Person 
     {
-        private readonly char sex = 'M';
+       
 
         private List<float> grades = new List<float>();
 
         public string name { get; private set; }
         public string surname { get; private set; }
         public int age { get; private set; }
-      
-        public Employee(string name, string surname, int age ) 
+        public int gender { get; private set; }
+          
+        public Employee(string name, string surname, int age, int gender ) 
+            : base( name, surname, age, gender )
         {
             this.name = name;
             this.surname = surname;
             this.age = age;
-            this.sex = 'K' ;
+            this.gender = gender;
         }
 
         public void AddGrade(float grade)
