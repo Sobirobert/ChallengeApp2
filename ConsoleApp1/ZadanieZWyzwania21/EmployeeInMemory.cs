@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 namespace ZadanieZWyzwania21
 {
     public class EmployeeInMemory : EmployeeBase
-    {
-        private List<float> Grades = new List<float>();
-
+    {      
+        private List<float> grades = new List<float>();
+        public override event GradeAddedDelegate GradeAdded;
         public string Name { get; private set; }
         public string Surname { get; private set; }
         public string Age { get; private set; }
@@ -29,7 +29,11 @@ namespace ZadanieZWyzwania21
         {
             if (grade >= 0 && grade <= 100)
             {
-                this.Grades.Add(grade);
+                this.grades.Add(grade);
+                if (GradeAdded != null)
+                {
+                    GradeAdded(this, new EventArgs());
+                }
             }
             else
             {

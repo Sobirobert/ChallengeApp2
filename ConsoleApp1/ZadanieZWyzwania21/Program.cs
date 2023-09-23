@@ -8,8 +8,12 @@ Console.WriteLine("Witamy w Programie UprzejmięDooszę do oceny Pracowników");
 Console.WriteLine("========================================================");
 Console.WriteLine();
 
-var employee = new EmployeeInFile("Rober", "Ramirez", "44", "Mele");
-
+var employee = new EmployeeInMemory("Rober", "Ramirez", "44", "Mele");
+employee.GradeAdded += EmployeeGradeAdded;
+void EmployeeGradeAdded(object sender, EventArgs args)
+{
+    Console.WriteLine("Dodano nową ocenę."); 
+}
 
 while (true)
 {

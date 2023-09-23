@@ -8,6 +8,7 @@ namespace ZadanieZWyzwania21
 {
     internal class EmployeeInFile : EmployeeBase
     {
+        public override event GradeAddedDelegate GradeAdded;
         public string Name { get; private set;}
         public string Surname { get; private set;}
         public string Age { get; private set;}
@@ -31,6 +32,10 @@ namespace ZadanieZWyzwania21
                 using (var writer = File.AppendText(FileName))
                 {
                     writer.WriteLine(grade);
+                }
+                if (GradeAdded != null)
+                {
+                    GradeAdded(this, new EventArgs());
                 }
             }
             else

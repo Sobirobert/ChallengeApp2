@@ -8,6 +8,8 @@ namespace ZadanieZWyzwania21
 {
     public class Supervisor : EmployeeBase
     {
+        public override event GradeAddedDelegate GradeAdded;
+
         private List<float> grades = new List<float>();
 
         public string Name {get; private set;}
@@ -31,6 +33,10 @@ namespace ZadanieZWyzwania21
             if (grade >= 0 && grade <= 100)
             {
                 this.grades.Add(grade);
+                if (GradeAdded != null)
+                {
+                    GradeAdded(this, new EventArgs());
+                }
             }
             else
             {
