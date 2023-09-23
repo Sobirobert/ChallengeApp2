@@ -6,24 +6,31 @@ using System.Threading.Tasks;
 
 namespace ZadanieZWyzwania21
 {
-    public class Supervisor : IEmployee
+    public class Supervisor : EmployeeBase
     {
-        private List<float> Grades = new List<float>();
+        private List<float> grades = new List<float>();
 
         public string Name {get; private set;}
-
         public string Surname { get; private set; }
 
-        public Supervisor(string name, string surname) 
+        public string Age {get; private set;}
+
+        public string Gender {get; private set;}
+
+        public Supervisor(string name, string surname, string age, string gender)
+            : base(name, surname, age, gender)
         { 
             this.Name = name;
             this.Surname = surname;
+            this.Age = age; 
+            this.Gender = gender;
         }
-        public void AddGrade(float grade)
+
+        public override void AddGrade(float grade)
         {
             if (grade >= 0 && grade <= 100)
             {
-                this.Grades.Add(grade);
+                this.grades.Add(grade);
             }
             else
             {
@@ -31,66 +38,35 @@ namespace ZadanieZWyzwania21
             }
         }
 
-        public void AddGrade(char grade)
-        {
-            switch (grade)
-            {
-                case 'A':
-                case 'a':
-                    this.Grades.Add(100);
-                    break;
-                case 'B':
-                case 'b':
-                    this.Grades.Add(80);
-                    break;
-                case 'C':
-                case 'c':
-                    this.Grades.Add(60);
-                    break;
-                case 'D':
-                case 'd':
-                    this.Grades.Add(40);
-                    break;
-                case 'E':
-                case 'e':
-                    this.Grades.Add(20);
-                    break;
-                default:
-                    // this.grades.Add(0);
-                    throw new Exception("Wrong Letter");
-
-            }
-        }
-
-        public void AddGrade(string grade)
+        public override void AddGrade(string grade)
         {
             switch (grade)
             {
                 case "6":
-                    this.Grades.Add(100);
+                    this.grades.Add(100);
                     break;
                 case "5":
-                    this.Grades.Add(80);
+                    this.grades.Add(80);
                     break;
                 case "4":
-                    this.Grades.Add(60);
+                    this.grades.Add(60);
                     break;
                 case "3":
-                    this.Grades.Add(40);
+                    this.grades.Add(40);
                     break;
                 case "-3":
                 case "3-":
-                    this.Grades.Add(35);
+                    this.grades.Add(35);
                     break;
                 case "+2":
                 case "2+":
-                    this.Grades.Add(25);
+                    this.grades.Add(25);
                     break;
                 case "2":
-                    this.Grades.Add(20);
+                    this.grades.Add(20);
                     break;
                 case "1":
-                    this.Grades.Add(0);
+                    this.grades.Add(0);
                     break;
                 default:
                     if (float.TryParse(grade, out float number))
@@ -107,32 +83,21 @@ namespace ZadanieZWyzwania21
                         throw new Exception("Incorrect value");
                     }
                     break;
-
-            }
-            
-        }
-        public void AddGrade(double grade)
-        {
-            float number = Convert.ToSingle(grade);
-            // float number = (float)grade;
-            this.AddGrade(number);
+            }     
         }
 
-        public Statistics GetStatistics()
+        public override Statistics GetStatistics()
         {
             var statistics = new Statistics();
-            statistics.Average = 0;
-            statistics.Max = float.MinValue;
-            statistics.Min = float.MaxValue;
 
-            foreach (var grade in this.Grades)
+            foreach (var grade in this.grades)
             {
                 statistics.Max = Math.Max(statistics.Max, grade);
                 statistics.Min = Math.Min(statistics.Min, grade);
                 statistics.Average += grade;
             }
 
-            statistics.Average /= this.Grades.Count;
+            statistics.Average /= this.grades.Count;
 
             switch (statistics.AverageLetter)
             {

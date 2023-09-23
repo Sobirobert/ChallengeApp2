@@ -2,12 +2,13 @@
 using System.Linq;
 using System.Runtime.Intrinsics.X86;
 using System.Xml.Linq;
+using System.Linq.Expressions;
 
 Console.WriteLine("Witamy w Programie UprzejmięDooszę do oceny Pracowników");
 Console.WriteLine("========================================================");
 Console.WriteLine();
 
-var supervisor = new Supervisor("Adam", "Wick");
+var employee = new EmployeeInFile("Rober", "Ramirez", "44", "Mele");
 
 
 while (true)
@@ -22,7 +23,7 @@ while (true)
 
     try
     {
-        supervisor.AddGrade(inPut);
+        employee.AddGrade(inPut);
 
     }
     catch (Exception e)
@@ -31,7 +32,7 @@ while (true)
     }
 }
 
-    var statistics = supervisor.GetStatistics();
+    var statistics = employee.GetStatistics();
     Console.WriteLine($" Max {statistics.Max}");
     Console.WriteLine($" Min {statistics.Min}");
     Console.WriteLine($" Average {statistics.Average}");

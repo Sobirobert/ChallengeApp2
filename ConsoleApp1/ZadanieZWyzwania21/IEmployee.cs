@@ -10,12 +10,13 @@ namespace ZadanieZWyzwania21
     {
         string Name { get; }
         string Surname { get; }
-        public void AddGrade(float grade);
-        public void AddGrade(char grade);
-        public void AddGrade(string grade);
-        public void AddGrade(double grade);
-    
-       
+        string Age { get; }
+        string Gender { get; }
+
+        void AddGrade(float grade);
+        void AddGrade(char grade);
+        void AddGrade(string grade);
+        void AddGrade(double grade);
         Statistics GetStatistics();
     }
 }
