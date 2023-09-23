@@ -8,7 +8,6 @@ namespace ZadanieZWyzwania21
 {
     internal class EmployeeInFile : EmployeeBase
     {
-        private List<float> Grades = new List<float>();
         public string Name { get; private set;}
         public string Surname { get; private set;}
         public string Age { get; private set;}
@@ -26,10 +25,9 @@ namespace ZadanieZWyzwania21
 
         public override void AddGrade(float grade)
         {
+
             if (grade >= 0 && grade <= 100)
             {
-                this.Grades.Add(grade);
-
                 using (var writer = File.AppendText(FileName))
                 {
                     writer.WriteLine(grade);
