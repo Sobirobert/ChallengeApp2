@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static ZadanieZWyzwania21.EmployeeBase;
 
 namespace ZadanieZWyzwania21
 {
@@ -18,5 +19,8 @@ namespace ZadanieZWyzwania21
         void AddGrade(string grade);
         void AddGrade(double grade);
         Statistics GetStatistics();
+
+        public event GradeAddedDelegate GradeAdded;
+
     }
 }
